@@ -250,4 +250,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   direction: {x: 0, y: 0, z: 1}
-  space: 0
+  space: 1
