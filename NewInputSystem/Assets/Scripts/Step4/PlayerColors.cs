@@ -10,5 +10,5 @@ public struct PlayerMaterial
 
 public class PlayerColors : MonoBehaviour
 {
-    public PlayerMaterial[] playerColors;
+    public PlayerMaterial[] colors;
 }

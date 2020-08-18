@@ -10,8 +10,9 @@ public class SetInitialColor : MonoBehaviour
         var playerIndex = GetComponent<PlayerInput>().playerIndex;
 
         // Get color assigned to our current player index
-        var playerColorsComponent = GameObject.Find("PlayerColors").GetComponent<PlayerColors>();
-        var myMaterial = playerColorsComponent.playerColors
+        
+        var playerColors = FindObjectOfType<PlayerColors>();
+        var myMaterial = playerColors.colors
             .FirstOrDefault(c => c.playerIndex == playerIndex)
             .material;
 

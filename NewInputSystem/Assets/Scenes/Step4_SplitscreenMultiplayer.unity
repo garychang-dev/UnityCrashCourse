@@ -450,15 +450,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9677632e01d1129419fc38e7e3ddbd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColors:
+  colors:
   - playerIndex: 0
     material: {fileID: 2100000, guid: 5f3dcec17e59abf4d8f66ad9eb0aeeba, type: 2}
   - playerIndex: 1
     material: {fileID: 2100000, guid: 3c7e5a52313fbae4a814ca732e81cd7d, type: 2}
   - playerIndex: 2
-    material: {fileID: 2100000, guid: d1c26f9243e03ed49ad608487c52814c, type: 2}
-  - playerIndex: 3
     material: {fileID: 2100000, guid: 05550bd64213d2f4eb55e137887fcfc9, type: 2}
+  - playerIndex: 3
+    material: {fileID: 2100000, guid: ade2763a0f312c445b5e777c47cf58c0, type: 2}
 --- !u!4 &2111654196
 Transform:
   m_ObjectHideFlags: 0
