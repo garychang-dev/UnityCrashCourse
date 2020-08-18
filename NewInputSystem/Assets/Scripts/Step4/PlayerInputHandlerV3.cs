@@ -3,23 +3,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerInputHandlerV2 : MonoBehaviour
+public class PlayerInputHandlerV3 : MonoBehaviour
 {
     public UnityEvent onJumpEvent;
 
     private Vector2 m_moveDirection;
     private Vector2 m_lookDirection;
-
-    private void Awake()
-    {
-        PlayerInput playerInput = GetComponent<PlayerInput>();
-        int playerIndex = playerInput.playerIndex;
-
-        // Assign this instance to the player controller that has the matching player index
-        var allPlayerControllers = FindObjectsOfType<PlayerControllerV2>();
-        var playerController = allPlayerControllers.FirstOrDefault(p => p.playerIndex == playerIndex);
-        playerController.SetPlayerInputHandler(this);
-    }
 
     public void OnMove(InputAction.CallbackContext ctx)
     {
@@ -33,7 +22,7 @@ public class PlayerInputHandlerV2 : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
+        if (ctx.performed && onJumpEvent != null)
         {
             onJumpEvent.Invoke();
         }
