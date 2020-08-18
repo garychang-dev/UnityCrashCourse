@@ -20,7 +20,7 @@ public class RigidbodyMovePosition : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 nextPosition = transform.position + (m_Direction * speed * Time.deltaTime);
+        Vector3 nextPosition = m_Rigidbody.position + (m_Direction * speed * Time.fixedDeltaTime);
         m_Rigidbody.MovePosition(nextPosition);
     }
 }
