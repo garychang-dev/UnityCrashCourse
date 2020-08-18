@@ -6,8 +6,8 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public UnityEvent onJumpEvent;
 
-    private Vector2 m_moveDirection;
-    private Vector2 m_lookDirection;
+    private Vector2 m_MoveDirection;
+    private Vector2 m_LookDirection;
     private PlayerInputActions m_PlayerInputActions;
 
     private void Awake()
@@ -29,8 +29,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     void Update()
     {
-        m_moveDirection = m_PlayerInputActions.Player.Move.ReadValue<Vector2>();
-        m_lookDirection = m_PlayerInputActions.Player.Look.ReadValue<Vector2>();
+        m_MoveDirection = m_PlayerInputActions.Player.Move.ReadValue<Vector2>();
+        m_LookDirection = m_PlayerInputActions.Player.Look.ReadValue<Vector2>();
     }
 
     private void OnJump(InputAction.CallbackContext ctx)
@@ -40,11 +40,11 @@ public class PlayerInputHandler : MonoBehaviour
 
     public Vector2 GetMoveDirection()
     {
-        return m_moveDirection;
+        return m_MoveDirection;
     }
 
     public Vector2 GetLookDirection()
     {
-        return m_lookDirection;
+        return m_LookDirection;
     }
 }
