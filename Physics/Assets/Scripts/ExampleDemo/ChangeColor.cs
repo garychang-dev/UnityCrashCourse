@@ -16,17 +16,11 @@ public class ChangeColor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            m_TargetMeshRenderer.material.color = color;
-        }
+        m_TargetMeshRenderer.material.color = color;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            m_TargetMeshRenderer.material.color = m_OriginalColor;
-        }
+        m_TargetMeshRenderer.material.color = m_OriginalColor;
     }
 }
