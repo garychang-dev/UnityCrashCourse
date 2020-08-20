@@ -10,10 +10,12 @@ public class PlayerController : MonoBehaviour
     public ForceMode forceMode;
 
     private Rigidbody m_Rigidbody;
+    private GroundCheck m_GroundCheck;
 
     private void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
+        m_GroundCheck = GetComponent<GroundCheck>();
     }
 
     private void OnEnable()
@@ -47,6 +49,9 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        m_Rigidbody.AddForce(transform.up * jumpForce, forceMode);
+        if (m_GroundCheck.IsGrounded())
+        {
+            m_Rigidbody.AddForce(transform.up * jumpForce, forceMode);
+        }
     }
 }

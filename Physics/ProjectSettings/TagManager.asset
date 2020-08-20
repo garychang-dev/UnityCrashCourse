@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Colliders
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Physics Layer 1
   - Physics Layer 2
   - Physics Layer 3
-  - 
+  - Platform
   - 
   - 
   - 
