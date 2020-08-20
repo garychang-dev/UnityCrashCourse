@@ -8,7 +8,6 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // TODO: Destroy the game object and increment the score in ScoreManager (singleton)
         if (other.gameObject.tag == Constants.PLAYER_TAG)
         {
             Destroy(gameObject);
