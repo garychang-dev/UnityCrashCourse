@@ -4,7 +4,7 @@ public class FallingPlatform : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == Constants.PLAYER_TAG)
         {
             Invoke("RemoveKinematicProperty", 0.25f);
         }

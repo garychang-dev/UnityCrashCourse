@@ -7,7 +7,7 @@ public class DeathPit : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == Constants.PLAYER_TAG)
         {
             onDeathEvent?.Invoke();
         }

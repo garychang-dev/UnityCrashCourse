@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         // Super inefficient but works for this demo
         if (!gameWon)
         {
-            int numCountsLeft = GameObject.FindGameObjectsWithTag("Coin").Length;
+            int numCountsLeft = GameObject.FindGameObjectsWithTag(Constants.COIN_TAG).Length;
             if(numCountsLeft == 0)
             {
                 gameWon = true;
