@@ -2,16 +2,6 @@
 
 public class FallingPlatform : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == Constants.PLAYER_TAG)
-        {
-            Invoke("RemoveKinematicProperty", 0.25f);
-        }
-    }
-
-    private void RemoveKinematicProperty()
-    {
-        GetComponent<Rigidbody>().isKinematic = false;
-    }
+    // TODO: Make the platform fall
+    // Recommendation: Use Invoke() with a delay so that the platform does not fall right away
 }
