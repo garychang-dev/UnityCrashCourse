@@ -6,5 +6,12 @@ public class Coin : MonoBehaviour
 {
     public int points;
 
-    // TODO: Destroy the game object and increment the score in ScoreManager (singleton)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == Constants.PLAYER_TAG)
+        {
+            Destroy(gameObject);
+            ScoreManager.instance.IncrementScore(points);
+        }
+    }
 }

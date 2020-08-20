@@ -4,5 +4,11 @@ public class DoorOpener : MonoBehaviour
 {
     public GameObject door;
 
-    // TODO: Activate the door blocking the way!
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == Constants.PLAYER_TAG)
+        {
+            door.GetComponent<TranslateToTarget>().enabled = true;
+        }
+    }
 }
