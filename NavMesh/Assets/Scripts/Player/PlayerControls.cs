@@ -2,9 +2,14 @@
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+[System.Serializable]
+public class TouchEvent : UnityEvent<Vector2>
+{
+}
+
 public class PlayerControls : MonoBehaviour
 {
-    public UnityEvent<Vector2> onTouchEvent;
+    public TouchEvent onTouchEvent;
 
     private InputActions m_Controls;
 
@@ -13,6 +18,10 @@ public class PlayerControls : MonoBehaviour
     void Awake()
     {
         m_Controls = new InputActions();
+        if (onTouchEvent == null)
+        {
+            onTouchEvent = new TouchEvent();
+        }
     }
 
     void OnEnable()
