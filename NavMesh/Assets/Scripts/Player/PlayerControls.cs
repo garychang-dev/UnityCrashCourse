@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerControls : MonoBehaviour
 {
-    public bool touched = false;
+    public UnityEvent<Vector2> onTouchEvent;
 
     private InputActions m_Controls;
 
-    private PlayerController m_PlayerController;
+    private Vector2 m_Direction;
+
     void Awake()
     {
         m_Controls = new InputActions();
-        m_PlayerController = GetComponent<PlayerController>();
     }
 
     void OnEnable()
@@ -28,17 +29,17 @@ public class PlayerControls : MonoBehaviour
 
     void Update()
     {
-        Vector2 inputDirection = m_Controls.Player.Move.ReadValue<Vector2>();
-        Vector3 direction = new Vector3(inputDirection.x, 0f, inputDirection.y);
-        direction = Vector3.ClampMagnitude(direction, 1f);
-
-        // Set the direction vector in player controller
-        m_PlayerController.Move(direction);
+        m_Direction = m_Controls.Player.Move.ReadValue<Vector2>();
     }
 
     void Touch(InputAction.CallbackContext ctx)
     {
         Vector2 screenLocation = ctx.ReadValue<Vector2>();
-        
+        onTouchEvent?.Invoke(screenLocation);
+    }
+
+    public Vector2 GetMoveDirection()
+    {
+        return m_Direction;
     }
 }

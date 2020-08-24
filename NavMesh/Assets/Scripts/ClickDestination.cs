@@ -16,21 +16,6 @@ public class ClickDestination : MonoBehaviour
         // NOTE: Use a key or button that is convenient to you
         //Keyboard.current.spaceKey.wasPressedThisFrame
 
-#if UNITY_ANDROID
-        // This code section is only for Android builds
-
-        if (Touchscreen.current.primaryTouch.tap.wasPressedThisFrame)
-        {
-            Vector3 position = Touchscreen.current.primaryTouch.position.ReadValue();
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(position), out hit, 100f))
-            {
-                // Set destination for NavMeshAgent
-                m_Agent.SetDestination(hit.point);
-            }
-        }
-
-#else
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             // Get mouse position in screen space
@@ -45,6 +30,5 @@ public class ClickDestination : MonoBehaviour
                 m_Agent.SetDestination(hit.point);
             }
         }
-#endif
     }
 }
