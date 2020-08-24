@@ -39,10 +39,20 @@ public class ChaseBehaviour : MonoBehaviour
 
     void Update()
     {
-        // TODO: Continuously chase the player
+        // Continuously chase the player
+        m_Agent.SetDestination(m_Player.transform.position);
 
-        // TODO: If the player is being seen, delay the time when the player will be lost
+        // If the player is being seen, delay the time when the player will be lost
+        bool canSeePlayer = m_Vision.IsPlayerInVision();
+        if (canSeePlayer)
+        {
+            s_PlayerLostTime = Time.time + timeUntilPlayerLost;
+        }
 
-        // TODO: If the patroller did not see its target for a while, trigger an event!
+        // If the patroller did not see its target for a while, trigger an event!
+        if (Time.time >= s_PlayerLostTime)
+        {
+            OnPlayerLostEvent?.Invoke();
+        }
     }
 }

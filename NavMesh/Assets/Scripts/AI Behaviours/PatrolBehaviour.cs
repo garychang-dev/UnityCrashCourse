@@ -22,39 +22,54 @@ public class PatrolBehaviour : MonoBehaviour
     {
         m_Agent = GetComponent<NavMeshAgent>();
         m_Vision = GetComponent<PatrollerVision>();
-    }
 
-    void Start()
-    {
         m_Waypoints = new List<Vector3>();
         SetupWaypoints();
-        SelectRandomWaypoint();
     }
 
     private void OnEnable()
     {
         m_Agent.speed = moveSpeed;
         m_Agent.angularSpeed = angularSpeed;
+
+        SelectRandomWaypoint();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // TODO: Select another waypoint when agent arrives at selected one
-        // HINT: Use a large "arrival distance" (e.g. 1) if the agent has trouble reaching it
+        // Select another waypoint when agent arrives at selected one
+        // Use a large "arrival distance" (e.g. 1) if the agent has trouble reaching it
+        if (m_Agent.remainingDistance < Constants.ARRIVAL_DISTANCE)
+        {
+            SelectRandomWaypoint();
+        }
 
-        // TODO: If player is found, trigger the event!
-
+        // If player is found, trigger the event!
+        bool isPlayerFound = m_Vision.IsPlayerInVision();
+        if (isPlayerFound)
+        {
+            OnPlayerFoundEvent?.Invoke();
+        }
     }
 
     private void SetupWaypoints()
     {
-        // TODO: Get a reference to all waypoints' positions
-        // HINT: We have a Waypoint tag
+        // Get a reference to all waypoints' positions
+        // NOTE: We have a Waypoint tag
+        GameObject[] waypoints = GameObject.FindGameObjectsWithTag(Constants.WAYPOINT_TAG);
+        foreach (var wp in waypoints)
+        {
+            m_Waypoints.Add(wp.transform.position);
+        }
+        
     }
 
     private void SelectRandomWaypoint()
     {
-        // TODO: Select a random waypoint and set it as the agent's destination
+        // Select a random waypoint and set it as the agent's destination
+        int randomIndex = Random.Range(0, m_Waypoints.Count);
+        m_CurrentWaypoint = m_Waypoints[randomIndex];
+        m_Agent.SetDestination(m_CurrentWaypoint);
     }
 }

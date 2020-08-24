@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerControls : MonoBehaviour
 {
+    public bool touched = false;
+
     private InputActions m_Controls;
 
     private PlayerController m_PlayerController;
@@ -15,11 +17,13 @@ public class PlayerControls : MonoBehaviour
     void OnEnable()
     {
         m_Controls.Enable();
+        m_Controls.Player.Touch.performed += Touch;
     }
 
     void OnDisable()
     {
         m_Controls.Disable();
+        m_Controls.Player.Touch.performed -= Touch;
     }
 
     void Update()
@@ -30,5 +34,11 @@ public class PlayerControls : MonoBehaviour
 
         // Set the direction vector in player controller
         m_PlayerController.Move(direction);
+    }
+
+    void Touch(InputAction.CallbackContext ctx)
+    {
+        Vector2 screenLocation = ctx.ReadValue<Vector2>();
+        
     }
 }

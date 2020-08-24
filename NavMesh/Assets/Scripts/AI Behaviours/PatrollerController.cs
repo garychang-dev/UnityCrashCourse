@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
+﻿using UnityEngine;
 
 public class PatrollerController : MonoBehaviour
 {
     // Behaviours
-    PatrolBehaviour patrolBehaviour;
-    ChaseBehaviour chaseBehaviour;
+    private PatrolBehaviour patrolBehaviour;
+    private ChaseBehaviour chaseBehaviour;
 
     private void Awake()
     {
@@ -31,12 +28,24 @@ public class PatrollerController : MonoBehaviour
 
     public void PlayerFound()
     {
-        // TODO: Alert all patrollers and change modes
+        // Alert all patrollers and change modes
+        GameObject[] allPatrollers = GameObject.FindGameObjectsWithTag(Constants.PATROLLER_TAG);
+        foreach (var obj in allPatrollers)
+        {
+            PatrollerController controller = obj.GetComponent<PatrollerController>();
+            controller.SwitchToChaseMode();
+        }
     }
 
     public void PlayerLost()
     {
-        // TODO: Signal all patrollers and change modes
+        // Signal all patrollers and change modes
+        GameObject[] allPatrollers = GameObject.FindGameObjectsWithTag(Constants.PATROLLER_TAG);
+        foreach (var obj in allPatrollers)
+        {
+            PatrollerController controller = obj.GetComponent<PatrollerController>();
+            controller.SwitchToPatrolMode();
+        }
     }
 
     public void SwitchToChaseMode()
