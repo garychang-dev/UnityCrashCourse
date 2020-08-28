@@ -613,7 +613,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Movement
+  m_Name: Movement BT
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -856,7 +856,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Left Turn
+  m_Name: Left Turn BT
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -933,7 +933,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Right Turn
+  m_Name: Right Turn BT
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
