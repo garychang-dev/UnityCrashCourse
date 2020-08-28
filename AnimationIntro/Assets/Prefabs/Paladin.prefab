@@ -1127,6 +1127,8 @@ GameObject:
   - component: {fileID: 7264946074915134701}
   - component: {fileID: 3871072987565005579}
   - component: {fileID: 3871072987565005574}
+  - component: {fileID: 919132147667476493}
+  - component: {fileID: 919132147667476494}
   m_Layer: 0
   m_Name: Paladin
   m_TagString: Untagged
@@ -1202,6 +1204,40 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &919132147667476493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141545354638318637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2fdc8fb5eb30344b4d88b0eda57648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothingFactor: 5
+--- !u!114 &919132147667476494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141545354638318637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97bb4aef706c9f04e9becd45d407a0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onJumpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onAttackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onBlockEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4224382366308315358
 GameObject:
   m_ObjectHideFlags: 0
